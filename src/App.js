@@ -11,7 +11,7 @@ class App extends Component {
     }, {
       id: 2,
       title: 'Dinner',
-      completed: true
+      completed: false
     }, {
       id: 3,
       title: 'Meeting',
@@ -19,8 +19,15 @@ class App extends Component {
     }]
   };
 
+
+
   markComplete = (id) => {
-    console.log(id);
+    this.setState({ todo: this.state.todos.map((todo) => {
+        if (todo.id === id)
+          todo.completed = !todo.completed;
+        return todo;
+      }) 
+    });
   }
 
   render() {
