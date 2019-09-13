@@ -19,8 +19,7 @@ class App extends Component {
     }]
   };
 
-
-
+  // Toggle complete
   markComplete = (id) => {
     this.setState({ todo: this.state.todos.map((todo) => {
         if (todo.id === id)
@@ -30,10 +29,18 @@ class App extends Component {
     });
   }
 
+  // Detele item
+  deleteItem = (id) => {
+    // Dealing with todos
+    // Copying everything that's there and use the spread operator [...]
+    // 
+    this.setState({ todo: [...this.state.todos.filter(todo => todo.id !== id)] });
+  }
+
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos } markComplete={this.markComplete}/>
+        <Todos todos={this.state.todos } markComplete={this.markComplete} delteItem={ this.deleteItem }/>
       </div>
     );
   }
