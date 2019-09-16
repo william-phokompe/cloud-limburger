@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 
 class App extends Component {
   state = {
@@ -34,12 +35,13 @@ class App extends Component {
     // Dealing with todos
     // Copying everything that's there and use the spread operator [...]
     // 
-    this.setState({ todo: [...this.state.todos.filter(todo => todo.id !== id)] });
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
   }
 
   render() {
     return (
       <div className="App">
+        <Header />
         <Todos todos={this.state.todos } markComplete={this.markComplete} delteItem={ this.deleteItem }/>
       </div>
     );
