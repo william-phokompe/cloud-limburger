@@ -38,7 +38,9 @@ const btnStyle = {
 // Validation for properties that a component should have
 // Property types
 TodoItem.protoType = {
-    todo: PropTypes.object.isRequired
+    todo: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delteItem: PropTypes.func.isRequired
 };
 
 export default TodoItem
